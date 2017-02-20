@@ -11,15 +11,17 @@ import xyz.itbang.gspider.Spider
  */
 System.setProperty ( "webdriver.chrome.driver" , "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe" );
 
-Browser browser = new Browser()  //无论在这里还是里面，打开的都是一个浏览器，在调用时是同步的
 Spider.crawl {
     seeds "http://www.oschina.net/"
-    rounds 2
+    rounds 1
     maxFetch 10
     //include ".*/audios/.*"
 
     download { url ->
+        Browser browser = new Browser()  //缓存策略可配置，之前了解不全面。
         browser.go url
+        browser.js."scroll(0,9000)"
+        Thread.sleep(10000)
         browser.getDriver().getPageSource()
     }
 
