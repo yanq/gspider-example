@@ -10,10 +10,20 @@ import xyz.itbang.gspider.Spider
  * Created by yan on 2017/2/20.
  */
 class MultiChromeSpider {
-   static ThreadLocal<ChromeDriver> local = new ThreadLocal<>()
+    static ThreadLocal<ChromeDriver> local = new ThreadLocal<>()
+    static {
+        System.setProperty ( "webdriver.chrome.driver" , "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe" );
+    }
+    static ChromeDriver getDriver(){
+        ChromeDriver driver = local.get()
+        if (!driver){
+            driver = new ChromeDriver()
+            local.set(driver)
+        }
+        return driver
+    }
 
     public static void main(String[] args) {
-        System.setProperty ( "webdriver.chrome.driver" , "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe" );
         Spider.crawl {
             seeds "http://www.oschina.net/"
             rounds 2
@@ -33,15 +43,5 @@ class MultiChromeSpider {
                 println("Title -> "+page.html.head.title)
             }
         }
-
-    }
-
-    static ChromeDriver getDriver(){
-        ChromeDriver driver = local.get()
-        if (!driver){
-            driver = new ChromeDriver()
-            local.set(driver)
-        }
-        return driver
     }
 }
