@@ -1,7 +1,7 @@
-package yan.example
+package example
 
-import yan.util.crawl.Page
-import yan.util.crawl.Spider
+import xyz.itbang.gspider.Page
+import xyz.itbang.gspider.Spider
 
 /**
  * a simple example.
@@ -9,7 +9,7 @@ import yan.util.crawl.Spider
  */
 
 Spider.crawl {
-    seed "http://www.luofans.com"
+    seeds "http://www.luofans.com"
     rounds 2
     maxFetch 20
     include ".*/audios/.*"

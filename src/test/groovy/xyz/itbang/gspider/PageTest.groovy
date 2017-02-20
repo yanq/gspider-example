@@ -1,6 +1,5 @@
-package yan.util.crawl
+package xyz.itbang.gspider
 
-import groovy.json.JsonOutput
 import groovy.xml.XmlUtil
 
 /**
