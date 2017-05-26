@@ -9,13 +9,13 @@ import xyz.itbang.gspider.Spider
  */
 
 Spider.crawl {
-    seeds "http://www.luofans.com"
+    seeds "http://www.luoyouzhijia.cn"
     rounds 2
     maxFetch 20
     include ".*/audios/.*"
 
-    handle{ Page page ->
-        println("Handle -> "+page.url)
-        println("Title -> "+page.html.head.title)
+    handle { Page page ->
+        println("Handle -> " + page.url)
+        println("Title -> " + page.document.title())
     }
 }
