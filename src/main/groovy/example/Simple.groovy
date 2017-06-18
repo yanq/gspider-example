@@ -2,6 +2,8 @@ package example
 
 import xyz.itbang.gspider.Page
 import xyz.itbang.gspider.Spider
+import xyz.itbang.gspider.remote.HessianServerScheduler
+import xyz.itbang.gspider.scheduler.LocalScheduler
 
 /**
  * a simple example.
@@ -13,6 +15,7 @@ Spider.crawl {
     rounds 2
     maxFetch 20
     include ".*/audios/.*"
+    scheduler(LocalScheduler)
 
     handle { Page page ->
         println("Handle -> " + page.url)

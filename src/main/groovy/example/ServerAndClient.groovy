@@ -15,9 +15,9 @@ import xyz.itbang.gspider.Spider
             Spider.crawl {
                 role roleName
                 seeds 'http://luoyouzhijia.cn/'
-                serviceUrl "http://localhost:8081/service"
+                serviceUrl "http://localhost:8087/service1"
                 thread 2
-                maxFetch 2
+                maxFetch 20
 
                 handle { Page page ->
                     println "Handle page ： ${page.document.title()}"
