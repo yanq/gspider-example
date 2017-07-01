@@ -2,7 +2,6 @@ package example
 
 import xyz.itbang.gspider.Page
 import xyz.itbang.gspider.Spider
-import xyz.itbang.gspider.remote.HessianServerScheduler
 import xyz.itbang.gspider.scheduler.LocalScheduler
 
 /**
