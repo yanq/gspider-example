@@ -18,6 +18,7 @@ import xyz.itbang.gspider.Spider
                 serviceUrl "http://localhost:8087/service1"
                 thread 2
                 maxFetch 20
+                maxClientWaiting(10000)
 
                 handle { Page page ->
                     println "Handle page ： ${page.document.title()}"
