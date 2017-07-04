@@ -15,7 +15,7 @@ import xyz.itbang.gspider.Spider
             Spider.crawl {
                 role roleName
                 seeds 'http://luoyouzhijia.cn/'
-                serviceUrl "http://localhost:8087/service1"
+                serviceUrl "http://localhost:8087/service"
                 thread 2
                 maxFetch 20
                 maxClientWaiting(10000)

@@ -3,6 +3,7 @@ package example
 import geb.Browser
 import xyz.itbang.gspider.Page
 import xyz.itbang.gspider.Spider
+import xyz.itbang.gspider.util.Tools
 
 /**
  * 登录后抓取内容
@@ -10,12 +11,12 @@ import xyz.itbang.gspider.Spider
  */
 System.setProperty ( "webdriver.chrome.driver" , "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver227.exe" );
 
-String url = "http://www.luoyouzhijia.cn/"
+String url = "http://luoyouzhijia.cn/"
 
 //to login
 Browser browser = new Browser()
 browser.go url
-Thread.sleep(20000)
+Tools.waitFor("登录")
 def cookies = browser.driver.manage().cookies
 browser.close()
 
