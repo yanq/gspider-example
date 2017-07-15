@@ -18,11 +18,11 @@ public class SimpleHandler extends AbstractHandler{
     public static void main(String[] args) {
         Spider spider = new Spider();
 
-        SpiderConfig config = spider.getConfig();
-        config.seeds("http://luoyouzhijia.cn/");
-        config.thread(5);
-        config.maxFetch(10);
-        config.handlers(new Class[]{SimpleHandler.class});
+        spider.getConfig()
+                .seeds("http://luoyouzhijia.cn/")
+                .thread(1)
+                .maxFetch(5)
+                .handlers(new Class[]{SimpleHandler.class});
 
         spider.start();
     }
